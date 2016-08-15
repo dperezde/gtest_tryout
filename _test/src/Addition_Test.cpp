@@ -1,8 +1,8 @@
 #include <limits.h>
 #include "gtest/gtest.h"
-#include "../../src//Multiply.hpp"
+#include "Addition.hpp"
 
-class MultiplyTest : public ::testing::Test {
+class AdditionTest : public ::testing::Test {
 protected:
 	virtual void SetUp(){
 	}
@@ -13,12 +13,12 @@ protected:
 	}
 };
 
-TEST_F(MultiplyTest,twoValues){
+TEST_F(AdditionTest,twoValues){
 	const int x = 4;
 	const int y = 5;
-	Multiply multiply;
-	EXPECT_EQ(9,multiply.twoValues(x,y));
-	EXPECT_EQ(5,multiply.twoValues(2,3));
+	Addition addition;
+	EXPECT_EQ(9,addition.twoValues(x,y));
+	EXPECT_EQ(5,addition.twoValues(2,3));
 
 }
 

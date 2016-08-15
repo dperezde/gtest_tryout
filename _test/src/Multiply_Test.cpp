@@ -1,6 +1,6 @@
 #include <limits.h>
 #include "gtest/gtest.h"
-#include "../../src//Multiply.hpp"
+#include "Multiply.hpp"
 
 class MultiplyTest : public ::testing::Test {
 protected:
@@ -17,8 +17,8 @@ TEST_F(MultiplyTest,twoValues){
 	const int x = 4;
 	const int y = 5;
 	Multiply multiply;
-	EXPECT_EQ(9,multiply.twoValues(x,y));
-	EXPECT_EQ(5,multiply.twoValues(2,3));
+	EXPECT_EQ(20,multiply.twoValues(x,y));
+	EXPECT_EQ(6,multiply.twoValues(2,3));
 
 }
 
