@@ -10,23 +10,29 @@ int Add(std::string numbers)
 	std::string delimiter {","};
 	int sum {0};
 
-	std::stringstream ss(numbers);
+	size_t p = 0;
 
 	int i;
 	if (numbers.length()>0) {
 		if(numbers.find("//")==0) {
-			delimiter=numbers.substr(2,1);
-			int pos = numbers.find(delimiter);
-			if(numbers.substr(pos+ delimiter.size())!="\n") {
+			p = numbers.find('\n');
+			if (p == std::string::npos) {
 				printf("Wrong delimiter formatting. It should be: //[delimiter]\\n[numbers…]\n");
 				return 0;
 			}
-			else{
-				ss << numbers.substr(numbers.find('\n') + 1 );
-			}
+
+			delimiter=numbers.substr(2,p-2);
+			for (size_t x; x != std::string::npos; x = numbers.find(delimiter))
+			      {
+			      numbers.replace(x,delimiter.length(),",");
+
+			      }
+			p = numbers.find('\n');
+
 		}
 	}
 
+	std::stringstream ss(numbers.substr(p));
 	while(ss >> i)
 	{
 		sum+=i;
